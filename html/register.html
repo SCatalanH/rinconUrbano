@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro | Rincón Urbano</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
 </head>
 <header>
   <style> 
+.warnings{
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color: #B06AB3;
+  padding-top: 20px;
 
+}
 .gradient-custom-3 {
 /* fallback for old browsers */
 background: #84fab0;
@@ -100,16 +106,34 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Crea una cuenta</h2>
 
-              <form>
+              <form class="row g-3 needs-validation" novalidate>
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Primer Nombre</label>
+                  <label for="validationCustom01" class="form-label">Primer Nombre</label>
+                  <input type="text" class="form-control" id="firstname" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+
                 </div>
-
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Tu Email</label>
+                  <label for="validationCustom02" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="lastname" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+              
+                </div>
+                <div class="form-outline mb-4">
+                  <label for="validationCustomUsername" class="form-label">Username</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+
                 </div>
 
                 <div class="form-outline mb-4">
@@ -117,21 +141,30 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
                   <label class="form-label" for="form3Example4cg">Contrasena</label>
                 </div>
 
+
                 <div class="form-outline mb-4">
                   <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">Repita su contrasena</label>
                 </div>
+                <p class="warnings" id="warnings"></p>
 
+                
                 <div class="form-check d-flex justify-content-center mb-5">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                  <label class="form-check-label" for="form2Example3g">
-                    Acepto las condiciones en los <a href="terminos.html" class="text-body"><u>Terminos del servicio</u></a>
-                  </label>
-                </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        Aceptas los terminos y condiciones
+                      </label>
+                      <div class="invalid-feedback">
+                        Debes aceptar los terminos antes de registrarte
+                      </div>
+                    </div>
+                  </div>
 
+                
                 <div class="d-flex justify-content-center">
                   <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrarse</button>
+                    class="btn btn-primary gradient-custom-4 text-body" type="button">Registrarse</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Ya tienes una cuenta? <a href="signin.html"
@@ -286,5 +319,31 @@ style="background-color: rgba(0, 0, 0, 0.2)"
 </div>
 <!-- Copyright -->
 </footer>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+  
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
 </html>
